@@ -31,6 +31,10 @@ const Gallery = (selector) => {
     const options = {
       index,
       getThumbBoundsFn: keepAspectRatio ? getThumbBoundsFn : undefined,
+      shareButtons: [
+        {id:'twitter', label:'Tweet', url:'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
+        {id:'download', label:'Download image', url:'{{raw_image_url}}', download:true},
+      ],
     };
 
     gallery = new PhotoSwipe(pswp, PhotoSwipeUI_Default, items, options);
