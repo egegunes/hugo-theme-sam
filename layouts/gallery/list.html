@@ -10,7 +10,7 @@
     {{ range $index, $element := sort $images "Title" "desc" }}
         <div>
             <a href="{{ $element.RelPermalink }}" data-size="{{ $element.Width }}x{{ $element.Height }}">
-                <img src="{{ $element.RelPermalink }}" alt="{{ $element.Name }}" data-index="{{ $index }}"/>
+                <img loading="lazy" src="{{ $element.RelPermalink }}" alt="{{ $element.Name }}" data-index="{{ $index }}"/>
             </a>
         </div>
     {{ end }}
@@ -21,7 +21,7 @@
     {{ range shuffle $images }}
         {{ $resized := .Resize $.Params.maxWidth }}
         <div>
-            <img src="{{ $resized.RelPermalink }}" alt="{{ .Name }}" />
+            <img loading="lazy" src="{{ $resized.RelPermalink }}" alt="{{ .Name }}" />
         </div>
     {{ end }}
     </div>
